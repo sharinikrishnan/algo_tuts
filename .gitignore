@@ -1,0 +1,13 @@
+# Ignore macOS system files
+.DS_Store
+
+# Ignore build output directory (e.g., for Maven or Gradle)
+target/
+
+# Ignore Eclipse IDE-specific files
+.classpath
+.project
+.settings/
+
+# Ignore log files
+*.log

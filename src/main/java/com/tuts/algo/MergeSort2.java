@@ -1,15 +1,13 @@
 package com.tuts.algo;
 
-public class MergeSort {
+public class MergeSort2{
 	private int[] array;
 
-	public MergeSort(int[] array) {
+	public MergeSort2(int[] array) {
 		this.array = array;
 	}
 
 	public void sort() {
-		// Create an auxiliary array for use during merging
-
 		merge_sort(this.array, 0, this.array.length - 1);
 	}
 
@@ -20,47 +18,41 @@ public class MergeSort {
 
 		int mid = start + (end - start) / 2;
 
-		// Recursively sort the left and right halves
 		merge_sort(arr, start, mid);
 		merge_sort(arr, mid + 1, end);
 
 		int i = start;
 		int j = mid + 1;
-        int k = 0;
+		int k = 0;
 		int[] aux = new int[end - start + 1];
 
 		while (i <= mid && j <= end) {
 			if (arr[i] <= arr[j]) {
 				aux[k] = arr[i];
 				i++;
-
 			} else {
 				aux[k] = arr[j];
 				j++;
-
 			}
-			k++; 
-
+			k++;
 		}
+
 		while (i <= mid) {
 			aux[k] = arr[i];
 			i++;
-            k++;
-            
+			k++;
 		}
+
 		while (j <= end) {
 			aux[k] = arr[j];
 			j++;
 			k++;
-
 		}
+
 		for (int l = 0; l < aux.length; l++) {
 			arr[start] = aux[l];
 			start++;
-
 		}
-		return;
-
 	}
 
 	public void printArray() {
@@ -68,17 +60,14 @@ public class MergeSort {
 		for (int i = 0; i < this.array.length; i++) {
 			System.out.print(this.array[i] + " ");
 		}
-
+		System.out.println();
 	}
 
 	public static void main(String[] args) {
-
 		int[] arr = { 5, 2, 8, 1, 3 };
 
-		MergeSort mergeSortObject = new MergeSort(arr);
+		MergeSort2 mergeSortObject = new MergeSort2(arr);
 		mergeSortObject.sort();
 		mergeSortObject.printArray();
-
 	}
-
 }
